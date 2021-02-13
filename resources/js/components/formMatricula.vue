@@ -2,16 +2,16 @@
     <div id="formMatricula" class="bg-dark">
         <form class="form py-3">
             <div class="container p-5">
-                <div class="col-10 painel-form bg-white px-5 py-3 m-auto">
+                <div class="col-12 col-md-10 painel-form bg-white px-5 py-3 m-auto">
                    <h1 class="text-center">Matricule-se já</h1>
                     <h3 class="text-center mt-4">Dados Pessoais</h3>
                     <div class="row mt-4">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="nome">Nome</label>
                             <input class="form-control" type="text" name="nome" id="nome" 
                                 v-model="dados.nom_insc" placeholder="Seu nome completo"/>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="email">Email</label>
                             <input class="form-control" type="email" name="email" id="email" 
                                 v-model="dados.email" placeholder="exemplo@exemplo.com"/>
@@ -19,47 +19,47 @@
                     </div>
 
                     <div class="row mt-4">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="datanascimento">Data de nascimento</label>
                             <input class="form-control" type="date" name="datanascimento" id="datanascimento" 
                                 v-model="dados.data_nasci" placeholder="12"/>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="telefone">Telefone para contato</label>
                             <the-mask class="form-control" :mask="'(##) # ####-####'" name="telefone" id="telefone" 
                                 v-model="dados.telefone" placeholder="(00) 0 0000 0000" />
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="cpf">CPF</label>
                             <the-mask name="cpf" id="cpf" :mask="'###.###.###-##'" 
                                 v-model="dados.cpf" placeholder="000.000.000-00" class="form-control"/>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="rg">RG</label>
                             <input class="form-control" type="text" name="rg" id="rg" 
                                 v-model="dados.rg" placeholder="XXXXXXXXXX"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="mae">Nome da sua Mãe</label>
                             <input class="form-control" type="text" name="mae" id="mae" 
                                 v-model="dados.nom_mae" placeholder="Nome completo da sua mãe"/>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="pai">Nome do seu Pai</label>
                             <input class="form-control" type="text" name="pai" id="pai" 
                                 v-model="dados.nom_pai" placeholder="Nome completo do seu pai"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="series">Serie a cursar</label>
                             <seriesSelect :dado="dados"/>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <label for="atencoes">Possui alguma nescessidade especial?</label>
                             <atencoesSelect :dado="dados"/>
                         </div>

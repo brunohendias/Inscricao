@@ -2140,7 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.enderecoInsc.cod_insc = dados.cod_insc;
           _core_inscricao_apiEnderecoInsc__WEBPACK_IMPORTED_MODULE_1__.default.cadastrar(_this.enderecoInsc).then(function (response) {
             if (response.data.success) {
-              console.log(response.data.msg);
+              console.log(response.data.data.msg);
             }
           });
         }
@@ -2179,7 +2179,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     classe: {
       type: String,
-      "default": ''
+      "default": 'form-control'
     }
   },
   data: function data() {
@@ -2197,6 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
       _core_dados_apiAtencoes__WEBPACK_IMPORTED_MODULE_0__.default.buscar().then(function (response) {
         if (response.data.success) {
           _this.atencoes = response.data.data.atencoes;
+          console.log(response.data.data.msg);
         } else {
           console.log(response.data.error.message);
         }
@@ -2235,7 +2236,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     classe: {
       type: String,
-      "default": ''
+      "default": 'form-control'
     }
   },
   data: function data() {
@@ -2253,6 +2254,7 @@ __webpack_require__.r(__webpack_exports__);
       _core_dados_apiSeries__WEBPACK_IMPORTED_MODULE_0__.default.buscar().then(function (response) {
         if (response.data.success) {
           _this.series = response.data.data.series;
+          console.log(response.data.data.msg);
         } else {
           console.log(response.data.error.message);
         }
@@ -2336,43 +2338,42 @@ var Api = /*#__PURE__*/function () {
 
   _createClass(Api, [{
     key: "submit",
-    value: function submit(requestType, url) {
-      var _this = this;
-
-      var body = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    value: function submit(method, url) {
+      var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      var params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      url = this._host + url;
       return new Promise(function (resolve, reject) {
         axios__WEBPACK_IMPORTED_MODULE_0___default()({
-          method: requestType,
-          url: _this._host + url,
-          data: body
+          method: method,
+          url: url,
+          params: params,
+          data: data
         }).then(function (response) {
-          resolve(response);
+          return resolve(response);
         })["catch"](function (error) {
-          reject(error);
+          return reject(error);
         });
       });
     }
   }, {
     key: "get",
     value: function get(url, params) {
-      return this.submit('get', url, {
-        params: params
-      });
+      return this.submit('get', url, null, params);
     }
   }, {
     key: "post",
-    value: function post(url, body) {
-      return this.submit('post', url, body);
+    value: function post(url, data) {
+      return this.submit('post', url, data);
     }
   }, {
     key: "put",
-    value: function put(url, body) {
-      return this.submit('put', url, body);
+    value: function put(url, data) {
+      return this.submit('put', url, data);
     }
   }, {
     key: "patch",
-    value: function patch(url, body) {
-      return this.submit('get', url, body);
+    value: function patch(url, data) {
+      return this.submit('get', url, data);
     }
   }, {
     key: "delete",
@@ -2681,9 +2682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./resources/js/core/api.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/core/api.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2708,7 +2707,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var ApiInscricao = /*#__PURE__*/function (_Api) {
   _inherits(ApiInscricao, _Api);
 
@@ -2728,7 +2726,7 @@ var ApiInscricao = /*#__PURE__*/function (_Api) {
   }]);
 
   return ApiInscricao;
-}(_api__WEBPACK_IMPORTED_MODULE_1__.default);
+}(_api__WEBPACK_IMPORTED_MODULE_0__.default);
 
 var apiInscricao = new ApiInscricao('/api/v1/');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiInscricao);
@@ -39837,7 +39835,10 @@ var render = function() {
       _c("div", { staticClass: "container p-5" }, [
         _c(
           "div",
-          { staticClass: "col-10 painel-form bg-white px-5 py-3 m-auto" },
+          {
+            staticClass:
+              "col-12 col-md-10 painel-form bg-white px-5 py-3 m-auto"
+          },
           [
             _c("h1", { staticClass: "text-center" }, [
               _vm._v("Matricule-se já")
@@ -39848,7 +39849,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row mt-4" }, [
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "nome" } }, [_vm._v("Nome")]),
                 _vm._v(" "),
                 _c("input", {
@@ -39879,7 +39880,7 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
                 _vm._v(" "),
                 _c("input", {
@@ -39912,7 +39913,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row mt-4" }, [
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "datanascimento" } }, [
                   _vm._v("Data de nascimento")
                 ]),
@@ -39947,7 +39948,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col-6" },
+                { staticClass: "col-md-6" },
                 [
                   _c("label", { attrs: { for: "telefone" } }, [
                     _vm._v("Telefone para contato")
@@ -39977,7 +39978,7 @@ var render = function() {
             _c("div", { staticClass: "row mt-4" }, [
               _c(
                 "div",
-                { staticClass: "col-6" },
+                { staticClass: "col-md-6" },
                 [
                   _c("label", { attrs: { for: "cpf" } }, [_vm._v("CPF")]),
                   _vm._v(" "),
@@ -40001,7 +40002,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "rg" } }, [_vm._v("RG")]),
                 _vm._v(" "),
                 _c("input", {
@@ -40034,7 +40035,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row mt-4" }, [
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "mae" } }, [
                   _vm._v("Nome da sua Mãe")
                 ]),
@@ -40067,7 +40068,7 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "col-md-6" }, [
                 _c("label", { attrs: { for: "pai" } }, [
                   _vm._v("Nome do seu Pai")
                 ]),
@@ -40104,30 +40105,26 @@ var render = function() {
             _c("div", { staticClass: "row mt-4" }, [
               _c(
                 "div",
-                { staticClass: "col-6" },
+                { staticClass: "col-md-6" },
                 [
                   _c("label", { attrs: { for: "series" } }, [
                     _vm._v("Serie a cursar")
                   ]),
                   _vm._v(" "),
-                  _c("seriesSelect", {
-                    attrs: { dado: _vm.dados, classe: "form-control" }
-                  })
+                  _c("seriesSelect", { attrs: { dado: _vm.dados } })
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col-6" },
+                { staticClass: "col-md-6" },
                 [
                   _c("label", { attrs: { for: "atencoes" } }, [
                     _vm._v("Possui alguma nescessidade especial?")
                   ]),
                   _vm._v(" "),
-                  _c("atencoesSelect", {
-                    attrs: { dado: _vm.dados, classe: "form-control" }
-                  })
+                  _c("atencoesSelect", { attrs: { dado: _vm.dados } })
                 ],
                 1
               )
@@ -40138,10 +40135,7 @@ var render = function() {
             _c("div", { staticClass: "row mt-4" }, [
               _c(
                 "div",
-                {
-                  staticClass: "col-sm-6",
-                  on: { focusout: _vm.buscaDadosCep }
-                },
+                { staticClass: "col-sm-6" },
                 [
                   _c("label", { attrs: { for: "cep" } }, [_vm._v("CEP")]),
                   _vm._v(" "),
