@@ -1,9 +1,9 @@
 <template>
-    <div id="formMatricula" class="bg-dark">
-        <form class="form py-3">
-            <div class="container p-5">
-                <div class="col-12 col-md-10 painel-form bg-white px-5 py-3 m-auto">
-                   <h1 class="text-center">Matricule-se já</h1>
+    <div id="formMatricula">
+        <form class="form">
+            <div class="container formulario">
+                <div class="col-md-12 painel-form px-5 py-3 m-auto">
+                    <h1 class="text-center py-4">Matricule-se já</h1>
                     <h3 class="text-center mt-4">Dados Pessoais</h3>
                     <div class="row mt-4">
                         <div class="col-md-6">
@@ -160,6 +160,16 @@ export default {
 </script>
 
 <style lang="css">
+
+    form {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .formulario {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+    }
 
     label {
         font-size: 20px;

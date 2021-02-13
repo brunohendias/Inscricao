@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SituacaoAluno extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'brunoh67_dbgerence.situacao_aluno';
+    protected $table = 'situacao_aluno';
     protected $primaryKey = 'cod_situacao';
     public $incrementing = true;
 }

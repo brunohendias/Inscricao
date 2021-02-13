@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-success m-auto" @click.prevent="matricular">Matricular</button>
+    <button class="btn btn-primary m-auto" @click.prevent="matricular">Matricular</button>
 </template>
 
 <script>
@@ -37,9 +37,9 @@ export default {
 </script>
 
 <style scoped lang="css">
-    .btn-success {
-        width: 220px;
-        height: 80px;
+    .btn {
+        width: 180px;
+        height: 60px;
         font-size: 20px;
     }
 </style>

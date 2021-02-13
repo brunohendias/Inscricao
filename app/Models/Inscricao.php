@@ -9,7 +9,7 @@ use App\Models\EnderecoInsc;
 class Inscricao extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'brunoh67_dbgerence.inscricao';
+    protected $table = 'inscricao';
     protected $primaryKey = 'cod_insc';
     public $incrementing = true;
 

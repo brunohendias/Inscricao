@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Turno extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'brunoh67_dbgerence.turno';
+    protected $table = 'turno';
     protected $primaryKey = 'cod_turno';
     public $incrementing = true;
 }
