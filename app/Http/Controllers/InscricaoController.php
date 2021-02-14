@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inscricao;
+use App\Models\Vinculo\SerieVinculo;
 
 class InscricaoController extends Controller
 {
@@ -23,12 +24,17 @@ class InscricaoController extends Controller
 
     public function store(Request $request) {
         try {
+            $SerieVinculo = new SerieVinculo();
+            $turno = $SerieVinculo->select('cod_serie_v', 'cod_serie', 'cod_turno')
+                ->where('cod_serie', $cod_serie)->first();
+
             $this->Inscricao->nom_insc = $request->nom_insc;
             $this->Inscricao->data_nasci = $request->data_nasci;
             $this->Inscricao->telefone = $request->telefone;
             $this->Inscricao->email = $request->email;
             $this->Inscricao->cod_serie = $request->cod_serie;
             $this->Inscricao->cod_atencao = $request->cod_atencao;
+            $this->Inscricao->cod_turno = $turno->cod_turno;
             $this->Inscricao->cpf = $request->cpf;
             $this->Inscricao->rg = $request->rg;
             $this->Inscricao->nom_mae = $request->nom_mae;
