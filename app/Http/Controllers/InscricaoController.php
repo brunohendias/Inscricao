@@ -24,6 +24,8 @@ class InscricaoController extends Controller
 
     public function store(Request $request) {
         try {
+            $cod_serie = $request->cod_serie;
+
             $SerieVinculo = new SerieVinculo();
             $turno = $SerieVinculo->select('cod_serie_v', 'cod_serie', 'cod_turno')
                 ->where('cod_serie', $cod_serie)->first();
