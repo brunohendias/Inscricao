@@ -44,19 +44,19 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <label for="mae">Nome da sua Mãe</label>
+                            <label for="mae">Nome da Mãe</label>
                             <input class="form-control" type="text" name="mae" id="mae" 
                                 v-model="dados.nom_mae" placeholder="Nome completo da sua mãe"/>
                         </div>
                         <div class="col-md-6">
-                            <label for="pai">Nome do seu Pai</label>
+                            <label for="pai">Nome do Pai</label>
                             <input class="form-control" type="text" name="pai" id="pai" 
                                 v-model="dados.nom_pai" placeholder="Nome completo do seu pai"/>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <label for="series">Serie a cursar</label>
+                            <label for="series">Série a cursar</label>
                             <seriesSelect :dado="dados"/>
                         </div>
                         <div class="col-md-6">
@@ -86,17 +86,17 @@
                         <div class="col-sm-6">
                             <label for="bairro">Bairro</label>
                             <input class="form-control" type="text" name="bairro" id="bairro" 
-                                v-model="enderecoInsc.bairro" placeholder="Bairro das flores"/>
+                                v-model="enderecoInsc.bairro" placeholder="Bairro das Flores"/>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col-sm-6">
                             <label for="rua">Rua</label>
                             <input class="form-control" type="text" name="rua" id="rua" 
-                                v-model="enderecoInsc.rua" placeholder="Rua dos lirios"/>
+                                v-model="enderecoInsc.rua" placeholder="Rua dos lírios"/>
                         </div>
                         <div class="col-sm-6">
-                            <label for="numero">Numero</label>
+                            <label for="numero">Número</label>
                             <input class="form-control" type="text" name="numero" id="numero" 
                                 v-model="enderecoInsc.numero" placeholder="1041"/>
                         </div>
