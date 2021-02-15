@@ -1,5 +1,5 @@
 <template>
-    <select name="series" id="series" v-model="dado.cod_serie" :class="classe">
+    <select name="series" id="cod_serie" v-model="dado.cod_serie" :class="classe">
         <option v-for="(serie, i) in series" :value="serie.cod_serie" :key="i">{{ serie.serie }}</option>
     </select>
 </template>
@@ -8,7 +8,7 @@
 import apiSeries from '../../../core/dados/apiSeries'
 
 export default {
-    name: 'seriesSelect',
+    name: 'selectSeries',
     props: {
         dado: {
             type: Object,
@@ -32,9 +32,6 @@ export default {
             apiSeries.buscar().then(response => {
                 if (response.data.success) {
                     this.series = response.data.data.series
-                    console.log(response.data.data.msg)
-                } else {
-                    console.log(response.data.error.message)
                 }
             })
         }
