@@ -39953,9 +39953,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row mt-4" }, [
             _c("div", { staticClass: "col-md-6" }, [
-              _c("label", { attrs: { for: "mae" } }, [
-                _vm._v("Nome da sua Mãe")
-              ]),
+              _c("label", { attrs: { for: "mae" } }, [_vm._v("Nome da Mãe")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -39986,9 +39984,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6" }, [
-              _c("label", { attrs: { for: "pai" } }, [
-                _vm._v("Nome do seu Pai")
-              ]),
+              _c("label", { attrs: { for: "pai" } }, [_vm._v("Nome do Pai")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -40025,7 +40021,7 @@ var render = function() {
               { staticClass: "col-md-6" },
               [
                 _c("label", { attrs: { for: "series" } }, [
-                  _vm._v("Serie a cursar")
+                  _vm._v("Série a cursar")
                 ]),
                 _vm._v(" "),
                 _c("seriesSelect", { attrs: { dado: _vm.dados } })
@@ -40157,7 +40153,7 @@ var render = function() {
                   type: "text",
                   name: "bairro",
                   id: "bairro",
-                  placeholder: "Bairro das flores"
+                  placeholder: "Bairro das Flores"
                 },
                 domProps: { value: _vm.enderecoInsc.bairro },
                 on: {
@@ -40190,7 +40186,7 @@ var render = function() {
                   type: "text",
                   name: "rua",
                   id: "rua",
-                  placeholder: "Rua dos lirios"
+                  placeholder: "Rua dos lírios"
                 },
                 domProps: { value: _vm.enderecoInsc.rua },
                 on: {
@@ -40205,7 +40201,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-6" }, [
-              _c("label", { attrs: { for: "numero" } }, [_vm._v("Numero")]),
+              _c("label", { attrs: { for: "numero" } }, [_vm._v("Número")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
