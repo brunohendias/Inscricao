@@ -2,107 +2,123 @@
     <div id="formMatricula">
         <form class="form">
             <div class="container formulario">
-                <div class="col-md-12 painel-form px-5 py-3 m-auto">
+                <div class="col-md-12 px-5 py-3 m-auto">
                     <h1 class="text-center py-4">Matricule-se já</h1>
                     <h3 class="text-center mt-4">Dados Pessoais</h3>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <label for="nome">Nome</label>
+                        <div class="col-md-6" id="nom_insc">
+                            <label for="nome">Nome <required /></label>
                             <input class="form-control" type="text" name="nome" id="nome" 
                                 v-model="dados.nom_insc" placeholder="Seu nome completo"/>
+                            <msg v-if="msgs.nom_insc" label="nome"/>
                         </div>
-                        <div class="col-md-6">
-                            <label for="email">Email</label>
+                        <div class="col-md-6" id="email">
+                            <label for="email">Email <required /></label>
                             <input class="form-control" type="email" name="email" id="email" 
                                 v-model="dados.email" placeholder="exemplo@exemplo.com"/>
+                            <msg v-if="msgs.email" label="email"/>
                         </div>
                     </div>
 
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <label for="datanascimento">Data de nascimento</label>
+                        <div class="col-md-6" id="data_nasci">
+                            <label for="datanascimento">Data de nascimento <required /></label>
                             <input class="form-control" type="date" name="datanascimento" id="datanascimento" 
-                                v-model="dados.data_nasci" placeholder="12"/>
+                                v-model="dados.data_nasci"/>
+                            <msg v-if="msgs.data_nasci" label="data de nascimento"/>
                         </div>
-                        <div class="col-md-6">
-                            <label for="telefone">Telefone para contato</label>
+                        <div class="col-md-6" id="telefone">
+                            <label for="telefone">Telefone para contato <required /></label>
                             <the-mask class="form-control" :mask="'(##) # ####-####'" name="telefone" id="telefone" 
                                 v-model="dados.telefone" placeholder="(00) 0 0000 0000" />
+                            <msg v-if="msgs.telefone" label="telefone para contato"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <label for="cpf">CPF</label>
+                        <div class="col-md-6" id="cpf">
+                            <label for="cpf">CPF <required /></label>
                             <the-mask name="cpf" id="cpf" :mask="'###.###.###-##'" 
                                 v-model="dados.cpf" placeholder="000.000.000-00" class="form-control"/>
+                            <msg v-if="msgs.cpf" label="CPF"/>
                         </div>
-                        <div class="col-md-6">
-                            <label for="rg">RG</label>
+                        <div class="col-md-6" id="rg">
+                            <label for="rg">RG <required /></label>
                             <input class="form-control" type="text" name="rg" id="rg" 
                                 v-model="dados.rg" placeholder="XXXXXXXXXX"/>
+                            <msg v-if="msgs.rg" label="RG"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <label for="mae">Nome da Mãe</label>
-                            <input class="form-control" type="text" name="mae" id="mae" 
+                        <div class="col-md-6" id="nom_mae">
+                            <label for="mae">Nome da Mãe <required /></label>
+                            <input class="form-control" type="text" name="mae" id="nom_mae" 
                                 v-model="dados.nom_mae" placeholder="Nome completo da sua mãe"/>
+                            <msg v-if="msgs.nom_mae" label="nome da Mãe"/>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" id="nom_pai">
                             <label for="pai">Nome do Pai</label>
-                            <input class="form-control" type="text" name="pai" id="pai" 
+                            <input class="form-control" type="text" name="pai" id="nom_pai" 
                                 v-model="dados.nom_pai" placeholder="Nome completo do seu pai"/>
+                            <msg v-if="msgs.nom_pai" label="nome do Pai"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <label for="series">Série a cursar</label>
-                            <seriesSelect :dado="dados"/>
+                        <div class="col-md-6" id="cod_serie">
+                            <label for="series">Série a cursar <required /></label>
+                            <selectSeries :dado="dados"/>
+                            <msg v-if="msgs.cod_serie" label="série a cursar"/>
                         </div>
-                        <div class="col-md-6">
-                            <label for="atencoes">Possui alguma nescessidade especial?</label>
-                            <atencoesSelect :dado="dados"/>
+                        <div class="col-md-6" id="cod_atencao">
+                            <label for="atencoes">Possui alguma necessidade especial? <required /></label>
+                            <selectAtencoes :dado="dados"/>
+                            <msg v-if="msgs.cod_atencao" label="necessidade especial"/>
                         </div>
                     </div>
-                    <h3 class="text-center mt-4">Endereço</h3>
+                    <h3 class="text-center mt-5">Endereço</h3>
                     <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <label for="cep">CEP</label>
+                        <div class="col-sm-6" id="cep">
+                            <label for="cep">CEP <required /></label>
                             <the-mask name="cep" id="cep" :mask="'#####-###'" 
                                 v-model="enderecoInsc.cep" placeholder="00000-000" class="form-control"/>
+                            <msg v-if="msgs.cep" label="CEP"/>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="estado">Estado</label>
-                            <input class="form-control" type="text" name="estado" id="estado" 
+                        <div class="col-sm-6" id="estado">
+                            <label for="estado">Estado <required /></label>
+                            <input class="form-control" type="text" name="estado" id="estado"
                                 v-model="enderecoInsc.estado" placeholder="SP"/>
+                            <msg v-if="msgs.estado" label="estado"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <label for="cidade">Cidade</label>
+                        <div class="col-sm-6" id="cidade">
+                            <label for="cidade">Cidade <required /></label>
                             <input class="form-control" type="text" name="cidade" id="cidade" 
                                 v-model="enderecoInsc.cidade" placeholder="São Paulo"/>
+                            <msg v-if="msgs.cidade" label="cidade"/>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="bairro">Bairro</label>
+                        <div class="col-sm-6" id="bairro">
+                            <label for="bairro">Bairro <required /></label>
                             <input class="form-control" type="text" name="bairro" id="bairro" 
                                 v-model="enderecoInsc.bairro" placeholder="Bairro das Flores"/>
+                            <msg v-if="msgs.bairro" label="bairro"/>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <label for="rua">Rua</label>
+                        <div class="col-sm-6" id="rua">
+                            <label for="rua">Rua <required /></label>
                             <input class="form-control" type="text" name="rua" id="rua" 
                                 v-model="enderecoInsc.rua" placeholder="Rua dos lírios"/>
+                            <msg v-if="msgs.rua" label="rua"/>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="numero">Número</label>
+                        <div class="col-sm-6" id="numero">
+                            <label for="numero">Número <required /></label>
                             <input class="form-control" type="text" name="numero" id="numero" 
                                 v-model="enderecoInsc.numero" placeholder="1041"/>
+                            <msg v-if="msgs.numero" label="número"/>
                         </div>
                     </div>
-                    <div class="row my-4">
-                        <matricularButton :dados="dados" :enderecoInsc="enderecoInsc"/>
+                    <div class="row my-5">
+                        <botaoMatricular :dados="dados" :enderecoInsc="enderecoInsc" :msgs="msgs"/>
                     </div>
                 </div>
             </div>
@@ -112,41 +128,63 @@
 
 <script>
 import apiCep from '../core/endereco/apiCep'
-import seriesSelect from './shared/select/seriesSelect'
-import atencoesSelect from './shared/select/atencoesSelect'
-import matricularButton from './shared/button/matricularButton'
+import selectSeries from './shared/select/selectSeries'
+import selectAtencoes from './shared/select/selectAtencoes'
+import botaoMatricular from './shared/button/botaoMatricular'
+import required from './shared/input/required'
+import msg from './shared/msg/required'
 
 export default {
     name: 'formMatricula',
     components: {
-        seriesSelect,
-        atencoesSelect,
-        matricularButton
+        selectSeries,
+        selectAtencoes,
+        botaoMatricular,
+        required,
+        msg
     },
     data() {
         return {
             dados: {
-                nom_insc: '',
-                data_nasci: '',
+                nom_insc: null,
+                data_nasci: null,
                 telefone: null,
-                email: '',
-                cod_serie: 0,
-                cod_atencao: 0,
-                cpf: '',
-                rg: '',
-                nom_mae: '',
-                nom_pai: ''
+                email: null,
+                cod_serie: null,
+                cod_atencao: null,
+                cpf: null,
+                rg: null,
+                nom_mae: null,
+                nom_pai: null
             },
             enderecoInsc: {
                 cod_insc: 0,
-                estado: '',
-                cidade: '',
-                bairro: '',
-                rua: '',
-                numero: 0,
+                estado: null,
+                cidade: null,
+                bairro: null,
+                rua: null,
+                numero: null,
                 cep: null
             },
-            enderecoCEP: {}
+            enderecoCEP: {},
+            msgs: {
+                nom_insc: false,
+                data_nasci: false,
+                telefone: false,
+                email: false,
+                cod_serie: false,
+                cod_atencao: false,
+                cpf: false,
+                rg: false,
+                nom_mae: false,
+                nom_pai: false,
+                estado: false,
+                cidade: false,
+                bairro: false,
+                rua: false,
+                numero: false,
+                cep: false
+            }
         }
     },
     methods: {
@@ -167,20 +205,22 @@ export default {
     }
 
     .formulario {
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
+        /*background-color: rgba(0, 0, 0, 0.7);*/
+        background-color: white;
+        border-radius: 25px;
     }
 
     label {
-        font-size: 20px;
+        margin-top: 10px;
+        font-size: 16px;
     }
 
     .form-control {
-        height: 50px;
+        height: 45px;
     }
 
-    .painel-form {
-        border-radius: 25px;
+    h3 {
+        font-family: Helvetica, sans-serif;
     }
 
 </style>
