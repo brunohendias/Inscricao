@@ -13,9 +13,7 @@ class TurmaSeeder extends Seeder
      */
     public function run()
     {
-        $arrayRegisters = [
-            'A','B','C','D'
-        ];
+        $arrayRegisters = [ 'A','B','C','D' ];
 
         foreach ($arrayRegisters as $register) {
             \DB::table('turma')->insert([
