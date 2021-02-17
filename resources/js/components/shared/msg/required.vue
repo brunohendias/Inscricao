@@ -7,7 +7,8 @@ export default {
     name: 'required',
     props: {
         label: {
-            type: String
+            type: String,
+            default: ''
         }
     }
 }

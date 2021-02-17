@@ -1,6 +1,8 @@
 <template>
     <select name="atencoes" id="cod_atencao" v-model="dado.cod_atencao" :class="classe">
-        <option v-for="(atencao, i) in atencoes" :value="atencao.cod_atencao" :key="i">{{ atencao.atencao }}</option>
+        <option v-for="(atencao, i) in atencoes" :value="atencao.cod_atencao" :key="i">
+            {{ atencao.atencao }}
+        </option>
     </select>
 </template>
 

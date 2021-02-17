@@ -9,6 +9,7 @@ import apiInscricao from '../../../core/inscricao/apiInscricao'
 import apiEnderecoInsc from '../../../core/inscricao/apiEnderecoInsc'
 import scrollView from '../../../helpers/scrollView'
 import emptyKey from '../../../helpers/emptyKey'
+import bus from '../../../core/bus'
 
 export default {
     name: 'botaoMatricular',
@@ -43,7 +44,7 @@ export default {
                     this.enderecoInsc.cod_insc = dados.cod_insc
                     apiEnderecoInsc.cadastrar(this.enderecoInsc).then(response => {
                         if (response.data.success) {
-                            console.log(response.data.data.msg)
+                            bus.$emit('finalizaMatricula', false)
                         }
                     })
                 }
