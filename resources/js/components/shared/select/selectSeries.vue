@@ -1,6 +1,8 @@
 <template>
     <select name="series" id="cod_serie" v-model="dado.cod_serie" :class="classe">
-        <option v-for="(serie, i) in series" :value="serie.cod_serie" :key="i">{{ serie.serie }}</option>
+        <option v-for="(serie, i) in series" :value="serie.cod_serie" :key="i">
+            {{ serie.serie }}
+        </option>
     </select>
 </template>
 
