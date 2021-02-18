@@ -22,7 +22,7 @@ export default {
     },
     data() {
         return {
-            tela: false
+            tela: true
         }
     },
     created() {
