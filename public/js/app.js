@@ -1881,7 +1881,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tela: true
+      tela: false
     };
   },
   created: function created() {
@@ -1928,7 +1928,7 @@ __webpack_require__.r(__webpack_exports__);
       img: 'https://cdn.pixabay.com/photo/2019/04/14/10/26/book-4126481_960_720.jpg',
       infos: [{
         title: 'Iremos avaliar sua matricula.',
-        text: 'Nossa escola se empenha para avaliar as matriculas e procurando o melhor jeito de recebermos você. Esse processo é um pouco demorando então pedimos que nos dê 3 dias para que possamos te dar um retorno informando a situação da sua matricula, a sala em que você irá estudar, o professor que irá te dar aula, o turno que você irá estudar, a turma em que você irá ficar, os horarios de inicio e fim da aula e intervalo, as materias de acordo com sua série,os materiais de compra obrigatoria e o valor da mensalidade.'
+        text: 'Nossa escola se empenha para avaliar as matrículas e fazer o melhor para receber você. Esse processo é bastante criterioso. Você receberá o retorno  da situação da sua matrícula e todas as informaçõesnecessárias em três dias, através do email informado. Receberá também a relação dos materiais de compra obrigatória e o valor da mensalidade.'
       }, {
         title: 'Contato',
         text: 'Telefone: (031) 3281 - 5444 <br>Celular: (031) 9 9999 - 8888 <br>Email: contato@escolinhaavance.com.br <br>Endereço: Av dos Lirios, Nº 1208, Floresta, São Paulo'
@@ -2277,7 +2277,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'required',
   props: {
     label: {
-      type: String
+      type: String,
+      "default": ''
     }
   }
 });
@@ -2296,6 +2297,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _core_dados_apiAtencoes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/dados/apiAtencoes */ "./resources/js/core/dados/apiAtencoes.js");
+//
+//
 //
 //
 //
@@ -2350,6 +2353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _core_dados_apiSeries__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/dados/apiSeries */ "./resources/js/core/dados/apiSeries.js");
+//
+//
 //
 //
 //
@@ -40416,7 +40421,7 @@ var render = function() {
     "div",
     [
       _c("h1", { staticClass: "mb-5 text-center" }, [
-        _vm._v("Obrigado por matricular-se em nossa escola!")
+        _vm._v("Obrigado por matrícular-se em nossa escola!")
       ]),
       _vm._v(" "),
       _vm._l(_vm.infos, function(info, i) {
@@ -40431,7 +40436,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "row mt-3" }, [
         _c("img", {
-          staticClass: "m-auto",
+          staticClass: "m-auto img-fluid",
           attrs: { src: _vm.img, alt: "imagem finaliza matricula" }
         })
       ])
@@ -41250,7 +41255,7 @@ var render = function() {
       return _c(
         "option",
         { key: i, domProps: { value: atencao.cod_atencao } },
-        [_vm._v(_vm._s(atencao.atencao))]
+        [_vm._v("\n        " + _vm._s(atencao.atencao) + "\n    ")]
       )
     }),
     0
@@ -41312,7 +41317,7 @@ var render = function() {
     },
     _vm._l(_vm.series, function(serie, i) {
       return _c("option", { key: i, domProps: { value: serie.cod_serie } }, [
-        _vm._v(_vm._s(serie.serie))
+        _vm._v("\n        " + _vm._s(serie.serie) + "\n    ")
       ])
     }),
     0

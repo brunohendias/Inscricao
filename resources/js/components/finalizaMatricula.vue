@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row mt-3">
-            <img :src="img" alt="imagem finaliza matricula" class="m-auto">
+            <img :src="img" alt="imagem finaliza matricula" class="m-auto img-fluid">
         </div>
     </div>
 </template>
