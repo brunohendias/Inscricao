@@ -112,12 +112,12 @@
 </template>
 
 <script>
-import apiCep from '../core/endereco/apiCep'
-import selectSeries from './shared/select/selectSeries'
-import selectAtencoes from './shared/select/selectAtencoes'
-import botaoMatricular from './shared/button/botaoMatricular'
-import required from './shared/input/required'
-import msg from './shared/msg/required'
+import apiCep from '@api/endereco/apiCep'
+import selectSeries from '@select/selectSeries'
+import selectAtencoes from '@select/selectAtencoes'
+import botaoMatricular from '@button/botaoMatricular'
+import required from '@input/required'
+import msg from '@msg/required'
 
 export default {
     name: 'formMatricula',

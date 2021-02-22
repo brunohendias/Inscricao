@@ -1,5 +1,5 @@
-import Api from '../api'
-import env from '../env.js'
+import Api from '@api/api'
+import env from '../../env.js'
 
 class ApiCep extends Api{
     

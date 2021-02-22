@@ -1,4 +1,4 @@
-import Api from '../api'
+import Api from '@api/api'
 
 class ApiInscricao extends Api {
     constructor(host) {

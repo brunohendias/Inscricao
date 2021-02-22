@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import apiInscricao from '../../../core/inscricao/apiInscricao'
-import apiEnderecoInsc from '../../../core/inscricao/apiEnderecoInsc'
-import scrollView from '../../../helpers/scrollView'
-import emptyKey from '../../../helpers/emptyKey'
+import apiInscricao from '@api/inscricao/apiInscricao'
+import apiEnderecoInsc from '@api/inscricao/apiEnderecoInsc'
+import scrollView from '@helpers/scrollView'
+import emptyKey from '@helpers/emptyKey'
 import bus from '../../../core/bus'
 
 export default {
