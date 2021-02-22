@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import apiSeries from '../../../core/dados/apiSeries'
+import apiSeries from '@api/dados/apiSeries'
 
 export default {
     name: 'selectSeries',

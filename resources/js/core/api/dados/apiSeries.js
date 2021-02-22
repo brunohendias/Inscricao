@@ -1,4 +1,4 @@
-import Api from '../api'
+import Api from '@api/api'
 
 class ApiSerie extends Api {
     constructor(host) {

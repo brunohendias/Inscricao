@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import apiAtencoes from '../../../core/dados/apiAtencoes'
+import apiAtencoes from '@api/dados/apiAtencoes'
 
 export default {
     name: 'selectAtencoes',
